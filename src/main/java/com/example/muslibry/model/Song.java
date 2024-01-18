@@ -1,19 +1,41 @@
 package com.example.muslibry.model;
 
+import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+@Entity
 public class Song {
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private Long id;
     private String title;
-
     private String genre;
     private String ismn;
     private String year;
     private String publisher;
+    @ManyToMany
+    private Set<Artist> artists = new HashSet<>();
 
-//private zeby pozniej get/set to enkapsulacja
-    // III Musilibry Section 2 - 16:49
-    //    metoda dostepu do pol
+    public Song(Long id, String title, String genre, String ismn, String year, String publisher) {
+        this.id = id;
+        this.title = title;
+        this.genre = genre;
+        this.ismn = ismn;
+        this.year = year;
+        this.publisher = publisher;
+    }
+    public Song() {
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
+    }
+
     public String getTitle() {
         return title;
     }
@@ -62,5 +84,18 @@ public class Song {
         this.artists = artists;
     }
 
-    private Set<Artist> artists = new HashSet<>(); /** przechowywanie obiekow klasy artist **/
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id=" + id +
+                "title='" + title + '\'' +
+                ", genre='" + genre + '\'' +
+                ", ismn='" + ismn + '\'' +
+                ", year='" + year + '\'' +
+                ", publisher='" + publisher + '\'' +
+                ", artists=" + artists +
+                ", id=" + id +
+                '}';
+    }
 }
+
