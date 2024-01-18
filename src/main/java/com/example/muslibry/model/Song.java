@@ -60,11 +60,11 @@ public class Song {
         this.ismn = ismn;
     }
 
-    public String getYear() {
+    public String getRokWydania() {
         return rokWydania;
     }
 
-    public void setYear(String rokWydania) {
+    public void setRokWydania(String rokWydania) {
         this.rokWydania = rokWydania;
     }
 
