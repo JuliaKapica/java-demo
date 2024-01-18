@@ -61,6 +61,5 @@ public class DBInflater implements ApplicationListener<ContextRefreshedEvent> {
         publisherRepository.save(topDawg);
         artistRepository.save(Lamar);
         songRepository.save(humble);
-
     }
 }
