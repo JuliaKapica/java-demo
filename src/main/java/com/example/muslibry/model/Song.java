@@ -12,17 +12,17 @@ public class Song {
     private String title;
     private String genre;
     private String ismn;
-    private String year;
-    private String publisher;
+    private String rokWydania;
+    @ManyToOne
+    private Publisher publisher;
     @ManyToMany
     private Set<Artist> artists = new HashSet<>();
 
-    public Song(Long id, String title, String genre, String ismn, String year, String publisher) {
-        this.id = id;
+    public Song( String title, String genre, String ismn, String rokWydania, Publisher publisher) {
         this.title = title;
         this.genre = genre;
         this.ismn = ismn;
-        this.year = year;
+        this.rokWydania = rokWydania;
         this.publisher = publisher;
     }
     public Song() {
@@ -61,18 +61,18 @@ public class Song {
     }
 
     public String getYear() {
-        return year;
+        return rokWydania;
     }
 
-    public void setYear(String year) {
-        this.year = year;
+    public void setYear(String rokWydania) {
+        this.rokWydania = rokWydania;
     }
 
-    public String getPublisher() {
+    public Publisher getPublisher() {
         return publisher;
     }
 
-    public void setPublisher(String publisher) {
+    public void setPublisher(Publisher publisher) {
         this.publisher = publisher;
     }
 
@@ -87,11 +87,11 @@ public class Song {
     @Override
     public String toString() {
         return "Song{" +
-                "id=" + id +
+
                 "title='" + title + '\'' +
                 ", genre='" + genre + '\'' +
                 ", ismn='" + ismn + '\'' +
-                ", year='" + year + '\'' +
+                ", rokWydania='" + rokWydania + '\'' +
                 ", publisher='" + publisher + '\'' +
                 ", artists=" + artists +
                 ", id=" + id +
